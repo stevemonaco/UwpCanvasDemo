@@ -28,6 +28,6 @@
         </StackPanel>
 
         <canvas:CanvasAnimatedControl x:Name="Canvas" Grid.Row="1" CreateResources="Canvas_CreateResources" Draw="Canvas_Draw" 
-            GameLoopStarting="Canvas_GameLoopStarting" GameLoopStopped="Canvas_GameLoopStopped" Update="Canvas_Update" />
+            GameLoopStarting="Canvas_GameLoopStarting" GameLoopStopped="Canvas_GameLoopStopped" Update="Canvas_Update" IsFixedTimeStep="False" />
     </Grid>
 </Page>
