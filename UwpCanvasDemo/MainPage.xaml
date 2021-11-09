@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="UwpCanvasDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UwpCanvasDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:sys="using:System"
+    d:DataContext="{d:DesignInstance Type=local:MainPage}"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock>
+                <Run Text="FPS: " />
+                <Run Text="{x:Bind FramesPerSecond, Mode=OneWay}" />
+            </TextBlock>
+            <TextBlock Margin="10 0 0 0">
+                <Run Text="Lines: " />
+                <Run Text="{x:Bind LineCount, Mode=OneWay}" />
+            </TextBlock>
+        </StackPanel>
+
+        <canvas:CanvasAnimatedControl x:Name="Canvas" Grid.Row="1" CreateResources="Canvas_CreateResources" Draw="Canvas_Draw" 
+            GameLoopStarting="Canvas_GameLoopStarting" GameLoopStopped="Canvas_GameLoopStopped" Update="Canvas_Update" />
+    </Grid>
+</Page>
